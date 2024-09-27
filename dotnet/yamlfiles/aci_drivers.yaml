@@ -1,0 +1,57 @@
+apiVersion: 2018-06-01
+location: eastus
+name: rideshare-drivers
+properties:
+  containers:
+    - name: rideshare-drivers
+      properties:
+        environmentVariables:
+          - 'name': 'APPINSIGHTS_INSTRUMENTATIONKEY'
+            'value': ''
+          - 'name': 'FUNCTIONS_EXTENSION_VERSION'
+            'value': '~2'
+          - 'name': 'AzureWebJobsDashboard'
+            'value': ''
+          - 'name': 'AzureWebJobsStorage'
+            'value': ''
+          - 'name': 'DocDbApiKey'
+            'value': ''
+          - 'name': 'DocDbEndpointUri'
+            'value': ''
+          - 'name': 'DocDbRideShareDatabaseName'
+            'value': 'RideShare'
+          - 'name': 'DocDbRideShareMainCollectionName'
+            'value': 'Main'
+          - 'name': 'DocDbThroughput'
+            'value': 400
+          - 'name': 'InsightsInstrumentationKey'
+            'value': ''
+          - 'name': 'IsRunningInContainer'
+            'value': 'true'
+          - 'name': 'IsPersistDirectly'
+            'value': 'true'
+          - 'name': 'AuthorityUrl'
+            'value': ''
+          - 'name': 'ApiApplicationId'
+            'value': ''
+          - 'name': 'ApiScopeName'
+            'value': 'rideshare'
+          - 'name': 'EnableAuth'
+            'value': 'false'
+        image: YOURACCOUNT/rideshare-drivers:v1
+        ports:
+          - port: 80
+        resources:
+          requests:
+            cpu: 1.0
+            memoryInGB: 1.5
+  osType: Linux
+  ipAddress:
+    type: Public
+    dnsNameLabel: rideshare-drivers
+    ports:
+      - protocol: tcp
+        port: '80'
+  restartPolicy: Always
+tags: null
+type: Microsoft.ContainerInstance/containerGroups

@@ -1,0 +1,16 @@
+APPINSIGHTS_INSTRUMENTATIONKEY=
+FUNCTIONS_EXTENSION_VERSION=~2
+AzureWebJobsDashboard|
+AzureWebJobsStorage|
+DocDbApiKey=
+DocDbEndpointUri=
+DocDbRideShareDatabaseName=RideShare
+DocDbRideShareMainCollectionName=Main
+DocDbThroughput=400
+InsightsInstrumentationKey=
+IsRunningInContainer=true
+IsPersistDirectly=true
+AuthorityUrl=
+ApiApplicationId=
+ApiScopeName=rideshare
+EnableAuth=true

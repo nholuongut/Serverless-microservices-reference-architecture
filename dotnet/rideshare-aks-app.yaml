@@ -1,0 +1,258 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: rideshare-drivers
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rideshare-drivers
+    spec:
+      containers:
+        - name: rideshare-drivers
+          image: khaledhikmat/rideshare-drivers:v1
+          ports:
+            - containerPort: 80
+          env:
+            - 'name': 'APPINSIGHTS_INSTRUMENTATIONKEY'
+              'value': ''
+            - 'name': 'FUNCTIONS_EXTENSION_VERSION'
+              'value': '~2'
+            - 'name': 'AzureWebJobsDashboard'
+              'value': ''
+            - 'name': 'AzureWebJobsStorage'
+              'value': ''
+            - 'name': 'DocDbApiKey'
+              'value': ''
+            - 'name': 'DocDbEndpointUri'
+              'value': ''
+            - 'name': 'DocDbRideShareDatabaseName'
+              'value': 'RideShare'
+            - 'name': 'DocDbRideShareMainCollectionName'
+              'value': 'Main'
+            - 'name': 'DocDbThroughput'
+              'value': '400'
+            - 'name': 'InsightsInstrumentationKey'
+              'value': ''
+            - 'name': 'IsRunningInContainer'
+              'value': 'true'
+            - 'name': 'IsPersistDirectly'
+              'value': 'true'
+            - 'name': 'AuthorityUrl'
+              'value': ''
+            - 'name': 'ApiApplicationId'
+              'value': ''
+            - 'name': 'ApiScopeName'
+              'value': 'rideshare'
+            - 'name': 'EnableAuth'
+              'value': 'false'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rideshare-drivers
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: rideshare-drivers
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: rideshare-passengers
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rideshare-passengers
+    spec:
+      containers:
+        - name: rideshare-passengers
+          image: YOURACCOUNT/rideshare-passengers:v1
+          ports:
+            - containerPort: 80
+          env:
+            - 'name': 'APPINSIGHTS_INSTRUMENTATIONKEY'
+              'value': ''
+            - 'name': 'FUNCTIONS_EXTENSION_VERSION'
+              'value': '~2'
+            - 'name': 'AzureWebJobsDashboard'
+              'value': ''
+            - 'name': 'AzureWebJobsStorage'
+              'value': ''
+            - 'name': 'DocDbApiKey'
+              'value': ''
+            - 'name': 'DocDbEndpointUri'
+              'value': ''
+            - 'name': 'DocDbRideShareDatabaseName'
+              'value': 'RideShare'
+            - 'name': 'DocDbRideShareMainCollectionName'
+              'value': 'Main'
+            - 'name': 'DocDbThroughput'
+              'value': '400'
+            - 'name': 'InsightsInstrumentationKey'
+              'value': ''
+            - 'name': 'IsRunningInContainer'
+              'value': 'true'
+            - 'name': 'IsPersistDirectly'
+              'value': 'true'
+            - 'name': 'GraphTenantId'
+              'value': ''
+            - 'name': 'GraphClientSecret'
+              'value': ''
+            - 'name': 'AuthorityUrl'
+              'value': ''
+            - 'name': 'ApiApplicationId'
+              'value': ''
+            - 'name': 'ApiScopeName'
+              'value': 'rideshare'
+            - 'name': 'EnableAuth'
+              'value': 'false'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rideshare-passengers
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: rideshare-passengers
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: rideshare-orchestrators
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rideshare-orchestrators
+    spec:
+      containers:
+        - name: rideshare-orchestrators
+          image: YOURACCOUNT/rideshare-orchestrators:v1
+          ports:
+            - containerPort: 80
+          env:
+            - 'name': 'APPINSIGHTS_INSTRUMENTATIONKEY'
+              'value': ''
+            - 'name': 'FUNCTIONS_EXTENSION_VERSION'
+              'value': '~2'
+            - 'name': 'AzureWebJobsDashboard'
+              'value': ''
+            - 'name': 'AzureWebJobsStorage'
+              'value': ''
+            - 'name': 'DocDbApiKey'
+              'value': ''
+            - 'name': 'DocDbEndpointUri'
+              'value': ''
+            - 'name': 'DocDbRideShareDatabaseName'
+              'value': 'RideShare'
+            - 'name': 'DocDbRideShareMainCollectionName'
+              'value': 'Main'
+            - 'name': 'DocDbThroughput'
+              'value': '400'
+            - 'name': 'DriversAcknowledgeMaxWaitPeriodInSeconds'
+              'value': '120'
+            - 'name': 'DriversLocationRadiusInMiles'
+              'value': '15'
+            - 'name': 'TripMonitorIntervalInSeconds'
+              'value': '10'
+            - 'name': 'TripMonitorMaxIterations'
+              'value': '20'
+            - 'name': 'InsightsInstrumentationKey'
+              'value': ''
+            - 'name': 'IsRunningInContainer'
+              'value': 'true'
+            - 'name': 'IsPersistDirectly'
+              'value': 'true'
+            - 'name': 'TripManagersQueue'
+              'value': 'trip-managers'
+            - 'name': 'TripMonitorsQueue'
+              'value': 'trip-monitors'
+            - 'name': 'TripDemosQueue'
+              'value': 'trip-demos'
+            - 'name': 'TripExternalizationsEventGridTopicUrl'
+              'value': ''
+            - 'name': 'TripExternalizationsEventGridTopicApiKey'
+              'value': ''
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: rideshare-trips
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rideshare-trips
+    spec:
+      containers:
+        - name: rideshare-trips
+          image: YOURACCOUNT/rideshare-trips:v1
+          ports:
+            - containerPort: 80
+          env:
+            - 'name': 'APPINSIGHTS_INSTRUMENTATIONKEY'
+              'value': ''
+            - 'name': 'FUNCTIONS_EXTENSION_VERSION'
+              'value': '~2'
+            - 'name': 'AzureWebJobsDashboard'
+              'value': ''
+            - 'name': 'AzureWebJobsStorage'
+              'value': ''
+            - 'name': 'DocDbApiKey'
+              'value': ''
+            - 'name': 'DocDbEndpointUri'
+              'value': ''
+            - 'name': 'DocDbRideShareDatabaseName'
+              'value': 'RideShare'
+            - 'name': 'DocDbRideShareMainCollectionName'
+              'value': 'Main'
+            - 'name': 'DocDbThroughput'
+              'value': '400'
+            - 'name': 'SqlConnectionString'
+              'value': ''
+            - 'name': 'AzureSignalRConnectionString'
+              'value': ''
+            - 'name': 'InsightsInstrumentationKey'
+              'value': ''
+            - 'name': 'IsRunningInContainer'
+              'value': 'true'
+            - 'name': 'IsEnqueueToOrchestrators'
+              'value': 'true'
+            - 'name': 'IsPersistDirectly'
+              'value': 'true'
+            - 'name': 'TripManagersQueue'
+              'value': 'trip-managers'
+            - 'name': 'TripMonitorsQueue'
+              'value': 'trip-monitors'
+            - 'name': 'TripDemosQueue'
+              'value': 'trip-demos'
+            - 'name': 'AuthorityUrl'
+              'value': ''
+            - 'name': 'ApiApplicationId'
+              'value': ''
+            - 'name': 'ApiScopeName'
+              'value': 'rideshare'
+            - 'name': 'EnableAuth'
+              'value': 'false'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rideshare-trips
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: rideshare-trips

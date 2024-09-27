@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ServerlessMicroservices.Seeder": {
+      "commandName": "Project",
+      "commandLineArgs": "seed --seeddriversurl https://ridesharedrivers.azurewebsites.net"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+ "bindings": [
+  {
+   "type": "eventGridTrigger",
+   "name": "eventGridEvent",
+   "direction": "in"
+  },
+  {
+   "type": "cosmosDB",
+   "direction": "out",
+   "name": "outputDocument",
+   "databaseName": "RideShare",
+   "collectionName": "Archive",
+   "createIfNotExists": false,
+   "connectionStringSetting": "DocDbConnectionStringKey"
+  }
+ ],
+ "disabled": false,
+ "_originalEntryPoint": false,
+ "_originalScriptFile": "index.js",
+ "scriptFile": "../.funcpack/index.js",
+ "entryPoint": "EVGH_TripExternalizations2CosmosDB"
+}
