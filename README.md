@@ -26,6 +26,8 @@ description: "This architecture walks you through the process involved in develo
 
 ![RideShare Macro Architecture](documentation/media/macro-architecture.png)
 
+### [View all Roadmaps](https://github.com/nholuongut/all-roadmaps) &nbsp;&middot;&nbsp; [Best Practices](https://github.com/nholuongut/all-roadmaps/blob/main/public/best-practices/) &nbsp;&middot;&nbsp; [Questions](https://www.linkedin.com/in/nholuong/)
+
 This reference architecture walks you through the decision-making process involved in designing, developing, and delivering the Rideshare by Relecloud application (a fictitious company). You will be given hands-on instructions for configuring and deploying all of the architecture's components, with helpful information about each component along the way. The goal is to provide you with practical hands-on experience in working with several integral Azure services and the technologies that effectively use them in a cohesive and unified way to build a serverless-based microservices architecture. We hope you will leave with a newfound appreciation for how serverless can be leveraged for both large-scale and small solutions, and the confidence to apply what you learned in your own projects.
 
 ## Customer scenario
@@ -93,6 +95,7 @@ Use the table of contents below for detailed documentation of each component of 
 * [Linkedin](https://www.linkedin.com/in/nholuong/)
 * [Email Address](luongutnho@hotmail.com) 
 
+![](bitfield.png)
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/nholuong)
 
 # License
