@@ -22,6 +22,9 @@ description: "This architecture walks you through the process involved in develo
 [![Node.js CI](https://github.com/Azure-Samples/Serverless-microservices-reference-architecture/actions/workflows/nodejs.yml/badge.svg)](https://github.com/Azure-Samples/Serverless-microservices-reference-architecture/actions/workflows/nodejs.yml) 
 [![spa build](https://github.com/Azure-Samples/Serverless-microservices-reference-architecture/actions/workflows/spa.yml/badge.svg)](https://github.com/Azure-Samples/Serverless-microservices-reference-architecture/actions/workflows/spa.yml)
 
+![](https://i.imgur.com/waxVImv.png)
+### [View all Roadmaps](https://github.com/nholuongut/all-roadmaps) &nbsp;&middot;&nbsp; [Best Practices](https://github.com/nholuongut/all-roadmaps/blob/main/public/best-practices/) &nbsp;&middot;&nbsp; [Questions](https://www.linkedin.com/in/nholuong/)
+
 ## The reference architecture
 
 ![RideShare Macro Architecture](documentation/media/macro-architecture.png)
@@ -87,14 +90,15 @@ Use the table of contents below for detailed documentation of each component of 
   - [Node.js](/documentation/source-code-structure.md#nodejs)
   - [Web](/documentation/source-code-structure.md#web)
 
-
+I'm are always open to your feedback.  Please contact as bellow information:
 ### [Contact ]
 * [Name: nho Luong]
 * [Skype](luongutnho_skype)
 * [Github](https://github.com/nholuongut/)
 * [Linkedin](https://www.linkedin.com/in/nholuong/)
-* [Email Address](luongutnho@hotmail.com) 
+* [Email Address](luongutnho@hotmail.com)
 
+![](https://i.imgur.com/waxVImv.png)
 ![](bitfield.png)
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/nholuong)
 
